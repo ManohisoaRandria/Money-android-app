@@ -26,6 +26,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'tabs',
     pathMatch: 'full'
+  },
+  {
+    path: 'credit',
+    loadChildren: () => import('./credit/credit.module').then( m => m.CreditPageModule)
   }
 ];
 
