@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
       },
       {
+        path: 'credit',
+        loadChildren: () => import('../credit/credit.module').then( m => m.CreditPageModule)
+      },
+      {
         path: 'add-depense',
         loadChildren: () => import('../add-depense/add-depense.module').then( m => m.AddDepensePageModule)
       },
