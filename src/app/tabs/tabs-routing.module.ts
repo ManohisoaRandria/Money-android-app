@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/add-depense',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]
