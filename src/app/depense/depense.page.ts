@@ -1,3 +1,4 @@
+import { ApiService } from './../services/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 
@@ -8,128 +9,28 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class DepensePage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  items: any;
+  items=[];
   listItemLength: number;
   listItem: any;
   nbElementPage = 5; //ovaina 10 element n page iray
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
-    this.items = [
-      {
-        montant: 1000,
-        date: new Date('2020-6-04'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-6-04'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-6-04'),
-        motif: 'frais',
-        motifVisible: false
-      },
-      {
-        montant: 1000,
-        date: new Date('2020-6-03'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-6-03'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-6-03'),
-        motif: 'frais',
-        motifVisible: false
-      },
-      {
-        montant: 1000,
-        date: new Date('2020-6-2'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-6-02'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-6-02'),
-        motif: 'frais',
-        motifVisible: false
-      },
-      {
-        montant: 1000,
-        date: new Date('2020-6-01'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-6-01'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-6-01'),
-        motif: 'frais',
-        motifVisible: false
-      },
-      {
-        montant: 1000,
-        date: new Date('2020-5-31'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-5-31'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-5-31'),
-        motif: 'frais',
-        motifVisible: false
-      },
-      {
-        montant: 1000,
-        date: new Date('2020-5-30'),
-        motif: 'cigarette',
-        motifVisible: false
-      },
-      {
-        montant: 2500,
-        date: new Date('2020-5-30'),
-        motif: 'gouter',
-        motifVisible: false
-      },
-      {
-        montant: 500,
-        date: new Date('2020-5-30'),
-        motif: 'frais',
-        motifVisible: false
-      }
-    ];
     this.listItemLength = 0;
     console.log(this.listItemLength);
     this.listItem = document.getElementById('listItem');
-    this.appendItems(5);
+    this.api.alldepenseSubject.subscribe(data=>{
+      this.items=data;
+      if( this.listItemLength!=0)this.infiniteScroll.disabled=false;
+    })
+    this.api.getAllDepense().then(res=>{
+      this.appendItems(5);
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
+
   }
 
   async loadData(event) {

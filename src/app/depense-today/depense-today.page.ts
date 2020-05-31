@@ -7,30 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./depense-today.page.scss'],
 })
 export class DepenseTodayPage implements OnInit {
-  items = [
-    {
-      montant: 1000,
-      date: new Date('2020-5-30'),
-      motif: 'cigarette',
-      motifVisible: false
-    },
-    {
-      montant: 2500,
-      date: new Date('2020-5-30'),
-      motif: 'gouter',
-      motifVisible: false
-    },
-    {
-      montant: 500,
-      date: new Date('2020-5-30'),
-      motif: 'frais',
-      motifVisible: false
-    }
-  ]
+  items = [];
   
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+    this.api.todayDepenseSubject.subscribe(data=>{
+      this.items=data;
+    })
+    this.api.getDepsenseToDay().then(res=>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 
   viewMotif(item: any) {

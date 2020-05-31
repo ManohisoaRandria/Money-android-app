@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="1 === 1"></ion-progress-bar>
+  <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="timeload === true"></ion-progress-bar>
   <form #f="ngForm" (ngSubmit)="logForm(f)" novalidate>
     <ion-grid>
       <ion-row>

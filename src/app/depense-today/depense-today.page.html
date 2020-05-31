@@ -7,7 +7,7 @@
     <ion-item *ngFor="let item of items" button (click)="viewMotif(item)">
       <ion-card>
         <ion-card-subtitle>
-          <ion-datetime value="{{item.date}}" display-format="DD-MM-YYYY , h:mm A" picker-format="h:mm A" display-timezone="utc"></ion-datetime>
+          {{item.date | date:'EEEE,d MMMM y'}}
         </ion-card-subtitle>
         <ion-card-content *ngIf="item.motifVisible">
           <ion-label>
