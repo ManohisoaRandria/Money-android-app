@@ -13,6 +13,7 @@ export class TabsPage implements OnInit {
  
   ngOnInit() {
   }
+  
   addDep(){
     this.router.navigateByUrl('/tabs/add-depense');
   }

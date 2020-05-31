@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./credit.page.scss'],
 })
 export class CreditPage implements OnInit {
-
+  dateToDay:Date = new Date();
   constructor() { }
 
   ngOnInit() {
