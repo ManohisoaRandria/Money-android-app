@@ -27,20 +27,10 @@ export class DepenseTodayPage implements OnInit {
       motifVisible: false
     }
   ]
-  depenses:any[];
-  show:boolean=true;
-  constructor(private api:ApiService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.api.todayDepenseSubject.subscribe(res=>{
-      this.depenses=res;
-    });
-    this.get();
-   // this.api.emit();
-  }
-  get(){
-    this.api.getDepsenseToDay();
-    this.show=false;
   }
 
   viewMotif(item: any) {

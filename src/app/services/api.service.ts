@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Platform } from '@ionic/angular';
 
 
 @Injectable({
@@ -15,7 +16,9 @@ export class ApiService {
   soldeSubject=new BehaviorSubject(0);
   alldepenseSubject=new BehaviorSubject([]);
 
-  constructor() { }
+  constructor() { 
+   
+  }
 
   emitToken(){
     this.tokenSubject.next(this.token);
