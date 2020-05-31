@@ -26,7 +26,7 @@ export class InscriptionComponent implements OnInit {
 
   onInscription(){
     if(this.mdp=="" || this.confMdp=="" || this.mdp!=this.confMdp){
-      this.error=" Mot de pass incorrect"
+      this.error="Mot de pass incorrect"
     }else{
       this.timeLoad = true;
       this.auth.signUp(this.nom,this.email,this.mdp).then(res=>{
