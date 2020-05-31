@@ -1,0 +1,49 @@
+<ion-content [fullsreen]="true">
+  <ion-progress-bar color="primary" type="indeterminate" *ngIf="timeLoad === true"></ion-progress-bar>
+ <ion-grid>
+  <ion-row class="ion-align-items-end" >
+    <ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+        <h1>Inscritpion</h1>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="erreur">  erreur mdp!</p>
+      <ion-item  color="none">
+        <ion-input required="true" placeholder="Votre Nom" [(ngModel)]="nom" ></ion-input>
+      </ion-item>
+      <ion-item  color="none">
+        <ion-input required="true" placeholder="Votre email" [(ngModel)]="email" ></ion-input>
+      </ion-item>
+      <ion-item color="none">
+        <ion-input type="{{ TPMdp }}" required="true" placeholder="Mot de passe" [(ngModel)]="mdp" ></ion-input>
+        <ion-icon size="small" slot="end" name="eye" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'password'"></ion-icon>
+        <ion-icon size="small" slot="end" name="eye-off" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'text'"></ion-icon>
+      </ion-item>
+      <ion-item color="none">
+        <ion-input type="{{ TPConf }}" required="true" placeholder="Confirmation" [(ngModel)]="confMdp" ></ion-input>
+        <ion-icon size="small" slot="end" name="eye" (click)="onChangeTPConf()" *ngIf="TPConf === 'password'" ></ion-icon>
+        <ion-icon size="small" slot="end" name="eye-off" (click)="onChangeTPConf()" *ngIf="TPConf === 'text'" ></ion-icon>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" color="primary" (click)="onInscription()">S'INSCRIPTIR</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="CA" >Si vous avez déja un compte.<a routerLink="/auth/login" >Se connecter</a></p>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
+</ion-content>

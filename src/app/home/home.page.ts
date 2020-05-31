@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
@@ -8,7 +8,7 @@ import { TabsPage } from '../tabs/tabs.page';
 })
 export class HomePage {
   tabsPage = TabsPage;
-
+  
   constructor() {}
 
 }
