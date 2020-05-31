@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
-
+  <form #f="ngForm" (ngSubmit)="logForm(f)" novalidate>
+    <ion-item>
+      <ion-label>date:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY"  name="date" ngModel required></ion-datetime>
+    </ion-item> 
+    <ion-item>
+      <ion-label>Montant:</ion-label>
+      <ion-input type="number" name="montant" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Motif:</ion-label>
+      <ion-input type="text" name="motif" ngModel required></ion-input>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="f.invalid" block>Add Todo</button>
+  </form>
 </ion-content>

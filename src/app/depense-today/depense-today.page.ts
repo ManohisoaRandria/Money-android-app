@@ -1,3 +1,4 @@
+import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./depense-today.page.scss'],
 })
 export class DepenseTodayPage implements OnInit {
+<<<<<<< HEAD
   items = [
     {
       montant: 1000,
@@ -38,6 +40,22 @@ export class DepenseTodayPage implements OnInit {
     } else {
       item.motifVisible = false;
     }
+=======
+  depenses:any[];
+  show:boolean=true;
+  constructor(private api:ApiService) { }
+
+  ngOnInit() {
+    this.api.todayDepenseSubject.subscribe(res=>{
+      this.depenses=res;
+    });
+    this.get();
+   // this.api.emit();
+  }
+  get(){
+    this.api.getDepsenseToDay();
+    this.show=false;
+>>>>>>> 28ffd9e1abe61945f876caf09b2da2faf57ccb96
   }
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DepenseTodayPage } from '../depense-today/depense-today.page';
-import { DepensePage } from '../depense/depense.page';
-import { AddDepensePage } from '../add-depense/add-depense.page';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tabs',
@@ -9,13 +8,13 @@ import { AddDepensePage } from '../add-depense/add-depense.page';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  depenseTodayPage = DepenseTodayPage;
-  depensePage = DepensePage;
-  addDepensePage = AddDepensePage;
-
-  constructor() { }
-
+  
+  constructor(private router:Router) { }
+ 
   ngOnInit() {
+  }
+  addDep(){
+    this.router.navigateByUrl('/tabs/add-depense');
   }
 
 }

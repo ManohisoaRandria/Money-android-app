@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-add-depense',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-depense.page.scss'],
 })
 export class AddDepensePage implements OnInit {
-
-  constructor() { }
+  daty=new Date();
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+  }
+  logForm(form:NgForm){
+    console.log(form.value);
+    this.api.addDepenseToDay();
   }
 
 }
