@@ -13,6 +13,7 @@ export class AddDepensePage implements OnInit {
 
   ngOnInit() {
   }
+  
   logForm(form:NgForm){
     console.log(form.value);
     this.api.addDepenseToDay();

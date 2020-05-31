@@ -5,19 +5,38 @@
 </ion-header>
 
 <ion-content>
+  <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="1 === 1"></ion-progress-bar>
   <form #f="ngForm" (ngSubmit)="logForm(f)" novalidate>
-    <ion-item>
-      <ion-label>date:</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY"  name="date" ngModel required></ion-datetime>
-    </ion-item> 
-    <ion-item>
-      <ion-label>Montant:</ion-label>
-      <ion-input type="number" name="montant" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Motif:</ion-label>
-      <ion-input type="text" name="motif" ngModel required></ion-input>
-    </ion-item>
-    <button ion-button type="submit" [disabled]="f.invalid" block>Add Todo</button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item color="none">
+            <ion-label position="floating" >Montant</ion-label>
+            <ion-input type="number" name="montant" min="0" ngModel required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item color="none">
+            <ion-label>Date</ion-label>
+            <ion-datetime displayFormat="DD MMM,YYYY"  value="{{ daty | date:'dd/MM/yyyy' }}" name="date" placeholder="Select date" ngModel required></ion-datetime>
+          </ion-item> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item color="none">
+            <ion-label position="floating">Motif</ion-label>
+            <ion-textarea name="motif" ngModel required></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" class="bouton" expand="block" color="primary">Debit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
