@@ -9,7 +9,7 @@
     <ion-col>
     </ion-col>
     <ion-col>
-        <h1>Login</h1>
+        <h1 class="titre">Login</h1>
     </ion-col>
     <ion-col> 
     </ion-col>
@@ -18,10 +18,10 @@
     <ion-col>
       <p class="erreur">  erreur mdp!</p>
       <ion-item  color="none">
-        <ion-input required="true" placeholder="Adresse mail" [(ngModel)]="email" ></ion-input>
+        <ion-input required="true" placeholder="Email" [(ngModel)]="email" ></ion-input>
       </ion-item>
       <ion-item color="none">
-        <ion-input required="true" type="{{ TPMdp }}" placeholder="Mot de passe" [(ngModel)]="mdp" ></ion-input>
+        <ion-input required="true" type="{{ TPMdp }}" placeholder="Password" [(ngModel)]="mdp" ></ion-input>
         <ion-icon size="small" slot="end" name="eye" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'password'" ></ion-icon>
         <ion-icon size="small" slot="end" name="eye-off" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'text'" ></ion-icon>
       </ion-item>
@@ -29,12 +29,12 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-button expand="block" color="primary" (click)="onLogin()">SE CONNECTER</ion-button>
+      <ion-button expand="block" color="primary" (click)="onLogin()">LOGIN</ion-button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <p class="CA" >Si vous n'avez pas de compte.<a routerLink="/auth/inscritpion" >Créez un compte.</a></p>
+      <p class="CA" >Don't have account?<a routerLink="/auth/inscritpion" >Create new account.</a></p>
     </ion-col>
   </ion-row>
  </ion-grid>
