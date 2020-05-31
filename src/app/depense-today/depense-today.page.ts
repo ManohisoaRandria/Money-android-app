@@ -27,10 +27,10 @@ export class DepenseTodayPage implements OnInit {
       motifVisible: false
     }
   ]
+  
   constructor() { }
 
   ngOnInit() {
-
   }
 
   viewMotif(item: any) {
