@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title>Home</ion-title>
-      <ion-icon class="boutonDec" slot="end" size="small" name="log-out" ></ion-icon>
+        <ion-title text-left>
+            {{url}}
+      </ion-title>
+      <ion-icon class="boutonDec" slot="end" size="small" name="log-out" (click)="onLogOut()"></ion-icon>
     </ion-toolbar>
   </ion-header>
-
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="credit">

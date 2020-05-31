@@ -4,5 +4,24 @@
   </ion-header>
   
 <ion-content>
-
+  <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="1 === 1"></ion-progress-bar>
+  <ion-drig>
+    <ion-row>
+      <ion-col>
+        <ion-item color="none">
+          <ion-label position="floating" >Montant</ion-label>
+          <ion-input type="number" size="number" value="0" min="0" inputmode="decimal" [(ngModel)]="mdp" required="true" ></ion-input>
+        </ion-item>
+        <ion-item color="none">
+          <ion-label>Date</ion-label>
+          <ion-datetime display-format="DD MMM,YYYY" value="{{ date | date:'dd/MM/yyyy' }}" placeholder="Select date" [(ngModel)]="date" required ></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="onCredit()">Credit</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-drig>
 </ion-content>
