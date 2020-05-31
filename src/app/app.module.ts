@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ApiService
+    ApiService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

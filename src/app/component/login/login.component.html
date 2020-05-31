@@ -16,12 +16,12 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <p class="erreur">  erreur mdp!</p>
+      <p class="erreur">{{error}}</p>
       <ion-item  color="none">
-        <ion-input required="true" placeholder="Email" [(ngModel)]="email" ></ion-input>
+        <ion-input required placeholder="Email" [(ngModel)]="email" ></ion-input>
       </ion-item>
       <ion-item color="none">
-        <ion-input required="true" type="{{ TPMdp }}" placeholder="Password" [(ngModel)]="mdp" ></ion-input>
+        <ion-input required type="{{ TPMdp }}" placeholder="Password" [(ngModel)]="mdp" ></ion-input>
         <ion-icon size="small" slot="end" name="eye" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'password'" ></ion-icon>
         <ion-icon size="small" slot="end" name="eye-off" (click)="onChangeTPMdp()" *ngIf="TPMdp === 'text'" ></ion-icon>
       </ion-item>

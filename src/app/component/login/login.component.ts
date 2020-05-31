@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
 
   email:string;
   mdp:string;
-
+  error:string="";
   timeLoad:boolean = false;
   TPMdp:string = 'password';
-
+feno:boolean=true;
   constructor(private router:Router,private auth:AuthService) { }
 
   ngOnInit() {}
@@ -24,18 +24,17 @@ export class LoginComponent implements OnInit {
   onLogIn(){
     this.timeLoad = true;
     this.auth.signIn(this.email,this.mdp).then(res=>{
-      console.log(this.email,this.mdp);
-      this.timeLoad = false;
       console.log(res);
+      this.timeLoad = false;
+      this.mdp="";
+      this.error="";
+      this.email="";
+      this.router.navigate(['/tabs/home']);
     }).catch(err=>{
-      console.log(err);
+      this.error=err;
+      this.timeLoad = false;
     });
-    // setTimeout(
-    //   ()=>{
-    //     this.timeLoad = false;
-    //     this.router.navigate(['/tabs/home']);
-    //   },4000
-    // );
+   
   }
 
    //Controle de l'icone eye

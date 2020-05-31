@@ -7,18 +7,19 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { AuthPage } from '../auth/auth.page';
-
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    Ng2OdometerModule,
+    Ng2OdometerModule.forRoot()
   ],
   declarations: [
-    HomePage,
-    AuthPage
+    HomePage
   ]
 })
 export class HomePageModule {}

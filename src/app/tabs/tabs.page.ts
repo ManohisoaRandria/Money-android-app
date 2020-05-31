@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 
 import { Location } from "@angular/common";
 import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { ApiService } from '../services/api.service';
 })
 export class TabsPage implements OnInit {
   url:string;
-  constructor(private router:Router,private api:ApiService,private location: Location,public alertControlle:AlertController) { }
+  constructor(private router:Router,private auth:AuthService,private api:ApiService,private location: Location,public alertControlle:AlertController) { }
 
   ngOnInit() {
     this.router.events.subscribe(val => {
@@ -39,8 +40,8 @@ export class TabsPage implements OnInit {
         {
           text: 'Yes',
           handler: () => {
+            this.auth.signOut();
             this.router.navigate(['auth']);
-            console.log('ok');
           }
         }
     ]
