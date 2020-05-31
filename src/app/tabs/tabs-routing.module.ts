@@ -27,12 +27,12 @@ const routes: Routes = [
       {
         path: 'depense-today',
         loadChildren: () => import('../depense-today/depense-today.module').then( m => m.DepenseTodayPageModule)
-      },
+      }, 
       {
         path: '',
-        redirectTo: '/tabs/home',
-        pathMatch: 'full'
-      }
+        redirectTo:'/tabs/home',
+        pathMatch:'full'
+      },
     ]
   }
 ];
