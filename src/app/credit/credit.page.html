@@ -4,22 +4,23 @@
   </ion-header>
   
 <ion-content>
+  <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="1 === 1"></ion-progress-bar>
   <ion-drig>
     <ion-row>
       <ion-col>
         <ion-item color="none">
-          <ion-label position="floating" >Montant:</ion-label>
+          <ion-label position="floating" >Montant</ion-label>
           <ion-input required="true" type="number" size="number" value="0" min="0" inputmode="decimal" [(ngModel)]="mdp" ></ion-input>
         </ion-item>
         <ion-item color="none" line="bottom">
-          <ion-label>Start Date</ion-label>
-          <ion-datetime display-format="DD MMM,YYYY" [value]="dateToDay | date" placeholder="Select Date"></ion-datetime>
+          <ion-label>Date</ion-label>
+          <ion-datetime display-format="DD MMM,YYYY" value="{{ date | date:'dd/MM/yyyy' }}" placeholder="Date"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-spinner name="bubbles" *ngIf="1 === 0"></ion-spinner>
+        <ion-button expand="block" color="primary" (click)="onCredit()">Credit</ion-button>
       </ion-col>
     </ion-row>
   </ion-drig>
