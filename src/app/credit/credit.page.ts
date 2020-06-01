@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreditService } from '../services/credit.service';
+import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 
 
@@ -14,22 +14,26 @@ export class CreditPage implements OnInit {
   error:string = "";
   timeLoad:boolean = false;
 
-  constructor(private creditService:CreditService,private router:Router) { }
+  constructor(private apiService:ApiService,private router:Router) { }
 
   ngOnInit() {
   }
 
   onCredit(){
-    this.creditService.onAddSold(this.montant,this.date).then(res=>{
-      this.timeLoad = true;
-      console.log(res);
-      this.date=new Date();
-      this.montant=0.0;
-      this.error = "";
-      this.timeLoad = false;
-      this.router.navigate(['/tabs/home']);
-    }).catch(err=>{
-      this.error=err;
-    });
+    if(this.montant > 0&&this.date != null){
+      this.apiService.onAddSold(this.montant,this.date).then(res=>{
+        this.timeLoad = true;
+        console.log(res);
+        this.date=new Date();
+        this.montant=0.0;
+        this.error = "";
+        this.timeLoad = false;
+        this.router.navigate(['/tabs/home']);
+      }).catch(err=>{
+        this.error=err;
+      });
+    }else{
+      this.error="montant 0"
+    }
   }
 }
