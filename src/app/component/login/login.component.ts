@@ -29,7 +29,7 @@ feno:boolean=true;
       this.mdp="";
       this.error="";
       this.email="";
-      this.router.navigate(['/tabs/home']);
+      this.router.navigate(['tabs']);
     }).catch(err=>{
       this.error=err;
       this.timeLoad = false;
