@@ -22,7 +22,10 @@ export class DepensePage implements OnInit {
     this.listItem = document.getElementById('listItem');
     this.api.alldepenseSubject.subscribe(data=>{
       this.items=data;
-      if( this.listItemLength!=0)this.infiniteScroll.disabled=false;
+      if(this.items.length<5){
+        this.appendItems(5);
+      }
+      if(this.listItemLength!=0 && this.infiniteScroll!=undefined)this.infiniteScroll.disabled=false;
     })
     this.api.getAllDepense().then(res=>{
       this.appendItems(5);
@@ -61,18 +64,45 @@ export class DepensePage implements OnInit {
       }, time);
     });
   }
+   dateHeureDuJourMalagasy(daty:string){
+    let andro=new Map();
+    let volana=new Map();
+    andro.set(1,'Alatsinainy');
+    andro.set(2,'Talata');
+    andro.set(3,'Alarobia');
+    andro.set(4,'Alakamisy');
+    andro.set(5,'Zoma');
+    andro.set(6,'Asabotsy');
+    andro.set(7,'Alahady');
 
+    volana.set(0,'Janoary');
+    volana.set(1,'Febroary');
+    volana.set(2,'Martsa');
+    volana.set(3,'Aprily');
+    volana.set(4,'May');
+    volana.set(5,'Jona');
+    volana.set(6,'Jolay');
+    volana.set(7,'Aogositra');
+    volana.set(8,'Septambra');
+    volana.set(9,'Oktobra');
+    volana.set(10,'Novambra');
+    volana.set(11,'Desambra');
+
+    let now=new Date(daty);
+    return andro.get(now.getDay())+" "+now.getDate()+" "+volana.get(now.getMonth())+" "+now.getFullYear();
+}
   appendItems(number) {
     if((this.items.length - this.listItemLength) < this.nbElementPage) { // reste element < nbeltPage
       number = this.items.length - this.listItemLength;
     }
     const originalLength = this.listItemLength;
     for (var i = 0; i < number; i++) {
+     
       const element = document.createElement('ion-item');
       element.innerHTML = `
         <ion-card>
           <ion-card-subtitle>
-            <ion-datetime value="${this.items[i + originalLength].date}" display-format="DD-MM-YYYY , h:mm A" picker-format="h:mm A" display-timezone="utc"></ion-datetime>
+            ${this.dateHeureDuJourMalagasy(this.items[i + originalLength].date)}
           </ion-card-subtitle>
           <ion-card-content *ngIf="!items[${i + originalLength}].motifVisible">
             <ion-label>

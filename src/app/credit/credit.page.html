@@ -5,7 +5,7 @@
   
 <ion-content>
   <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="timeLoad === true"></ion-progress-bar>
-  <ion-drig>
+  <ion-grid>
     <ion-row>
       <ion-col>
         <p class="erreur">{{error}}</p>
@@ -15,7 +15,7 @@
         </ion-item>
         <ion-item color="none">
           <ion-label>Date</ion-label>
-          <ion-datetime display-format="DD MMM,YYYY" value="{{ date }}" placeholder="Select date" [(ngModel)]="date" required ></ion-datetime>
+          <ion-datetime display-format="DD MMM,YYYY" value="{{ date2 | date:'dd/MM/yyyy' }}" placeholder="Select date" [(ngModel)]="date" required ></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -24,5 +24,5 @@
         <ion-button expand="block" color="primary" (click)="onCredit()">Credit</ion-button>
       </ion-col>
     </ion-row>
-  </ion-drig>
+  </ion-grid>
 </ion-content>

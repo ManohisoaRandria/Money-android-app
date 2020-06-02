@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./credit.page.scss'],
 })
 export class CreditPage implements OnInit {
-  date:Date = new Date();
+  date:string ="";
+  date2=new Date();
   montant:Number = 0.0; 
   error:string = "";
   timeLoad:boolean = false;
@@ -20,11 +21,12 @@ export class CreditPage implements OnInit {
   }
 
   onCredit(){
-    if(this.montant > 0&&this.date != null){
-      this.apiService.onAddSold(this.montant,this.date).then(res=>{
+    if(this.montant > 0&&this.date != null && this.date!=""){
+      this.error="";
+      this.apiService.onAddSold(this.montant,this.date.substring(0,10).replace(/-/g, "/")).then(res=>{
         this.timeLoad = true;
         console.log(res);
-        this.date=new Date();
+        this.date="";
         this.montant=0.0;
         this.error = "";
         this.timeLoad = false;
@@ -33,7 +35,7 @@ export class CreditPage implements OnInit {
         this.error=err;
       });
     }else{
-      this.error="montant 0"
+      this.error="montant 0";
     }
   }
 }

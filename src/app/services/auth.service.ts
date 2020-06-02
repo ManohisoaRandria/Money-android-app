@@ -10,6 +10,7 @@ export class AuthService {
     isAuth:boolean = false;
     nomUser:string="";
     obs=new BehaviorSubject("");
+    private url:string="http://localhost/volakoBack";
     emit(){
       this.obs.next(this.nomUser);
     }
@@ -22,7 +23,7 @@ export class AuthService {
           "email":email,
           "pwd":mdp
         }
-        this.http.post('http://localhost/volakoBack/login',data).subscribe(res=>{
+        this.http.post(this.url+'/login',data).subscribe(res=>{
             if(res=="no login" || res=="login diso"){
               reject("Login failed");
             }else if(res['userName']!=undefined && res['token']!=undefined){
@@ -46,7 +47,7 @@ export class AuthService {
           "email":email,
           "pwd":mdp
         }
-        this.http.post('http://localhost/volakoBack/inscription',data).subscribe(res=>{
+        this.http.post(this.url+'/inscription',data).subscribe(res=>{
             if(res=="no inscription data"){
               reject(res);
             }else if(res['message']!=undefined && res['message']=="register success"){

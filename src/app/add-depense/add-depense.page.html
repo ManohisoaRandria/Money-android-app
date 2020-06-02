@@ -6,6 +6,7 @@
 
 <ion-content>
   <ion-progress-bar type="indeterminate" reversed="true" value="0.1" *ngIf="timeload === true"></ion-progress-bar>
+  <p class="erreur">{{error}}</p>
   <form #f="ngForm" (ngSubmit)="logForm(f)" novalidate>
     <ion-grid>
       <ion-row>
@@ -34,7 +35,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" class="bouton" expand="block" color="primary">Debit</ion-button>
+          <ion-button type="submit" class="bouton" expand="block" color="primary" [disabled]="f.invalid">Debit</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
