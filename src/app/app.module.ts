@@ -1,3 +1,4 @@
+import { Ng2OdometerModule } from 'ng2-odometer';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,14 +14,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule,
-     IonicModule.forRoot(), 
      AppRoutingModule,
      HttpClientModule,
-     FormsModule
+     FormsModule,
+     IonicModule.forRoot(),
+     Ng2OdometerModule.forRoot()
     ],
   providers: [
     StatusBar,
